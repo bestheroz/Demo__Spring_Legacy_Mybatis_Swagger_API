@@ -1,17 +1,17 @@
 <component name="ArtifactManager">
-  <artifact type="exploded-war" name="api:war exploded">
+  <artifact type="exploded-war" name="My_Spring_Maven_Swagger_API_Project:war exploded">
     <output-path>$PROJECT_DIR$/target/ROOT</output-path>
     <properties id="maven-jee-properties">
       <options>
         <exploded>true</exploded>
-        <module>api</module>
+        <module>My_Spring_Maven_Swagger_API_Project</module>
         <packaging>war</packaging>
       </options>
     </properties>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="api" />
+          <element id="module-output" name="My_Spring_Maven_Swagger_API_Project" />
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:5.1.6.RELEASE" />
@@ -39,6 +39,7 @@
           <element id="library" level="project" name="Maven: org.mybatis:mybatis:3.5.1" />
           <element id="library" level="project" name="Maven: org.mybatis:mybatis-spring:2.0.1" />
           <element id="library" level="project" name="Maven: com.zaxxer:HikariCP:3.3.1" />
+          <element id="library" level="project" name="Maven: com.h2database:h2:1.4.199" />
           <element id="library" level="project" name="Maven: commons-codec:commons-codec:1.12" />
           <element id="library" level="project" name="Maven: net.bytebuddy:byte-buddy:1.9.10" />
           <element id="library" level="project" name="Maven: javax.inject:javax.inject:1" />
@@ -71,13 +72,12 @@
           <element id="library" level="project" name="Maven: com.google.errorprone:error_prone_annotations:2.2.0" />
           <element id="library" level="project" name="Maven: com.google.j2objc:j2objc-annotations:1.1" />
           <element id="library" level="project" name="Maven: org.codehaus.mojo:animal-sniffer-annotations:1.17" />
-          <element id="library" level="project" name="Maven: com.h2database:h2:1.4.199" />
         </element>
       </element>
       <element id="directory" name="META-INF">
         <element id="file-copy" path="$PROJECT_DIR$/target/ROOT/META-INF/MANIFEST.MF" />
       </element>
-      <element id="javaee-facet-resources" facet="api/web/Web" />
+      <element id="javaee-facet-resources" facet="My_Spring_Maven_Swagger_API_Project/web/Web" />
     </root>
   </artifact>
 </component>

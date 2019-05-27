@@ -176,12 +176,18 @@
             <version>${HikariCP-version}</version>
         </dependency>
         <!-- jdbc -->
+        <!--        <dependency>-->
+        <!--            <groupId>oracle.jdbc</groupId>-->
+        <!--            <artifactId>jdbc</artifactId>-->
+        <!--            <version>12.2.0.1</version>-->
+        <!--            <scope>system</scope>-->
+        <!--            <systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/ojdbc8.jar</systemPath>-->
+        <!--        </dependency>-->
+        <!-- 임시DB h2 -->
         <dependency>
-            <groupId>oracle.jdbc</groupId>
-            <artifactId>jdbc</artifactId>
-            <version>12.2.0.1</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/ojdbc8.jar</systemPath>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>${h2database-version}</version>
         </dependency>
 
         <!-- 암호화관련(Base64, AES..) -->
@@ -261,13 +267,6 @@
             <version>${com.google.guava-version}</version>
         </dependency>
 
-        <!-- 임시DB h2 -->
-        <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-            <version>${h2database-version}</version>
-        </dependency>
-
         <!-- 여기까지 표준프레임워크에서 정의한 library -->
         <!-- 여기까지 표준프레임워크에서 정의한 library -->
         <!-- 여기까지 표준프레임워크에서 정의한 library -->
@@ -280,6 +279,9 @@
             <properties>
                 <resources>resources-local</resources>
             </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
         </profile>
         <profile>
             <id>dev</id>
