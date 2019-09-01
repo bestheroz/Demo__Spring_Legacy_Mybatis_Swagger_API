@@ -38,7 +38,7 @@
 
     <!-- <exclude-mapping path="/" /> -->
     <!-- <exclude-mapping path="/csrf" /> -->
-    <!-- <exclude-mapping path="/common/valuelabel/getValueLabeVOList.json" /> -->
+    <!-- <exclude-mapping path="/common/valuelabel/getList.json" /> -->
     <!-- <exclude-mapping path="/favicon.ico" /> -->
     <!-- <exclude-mapping path="/common/exception/**" /> -->
     <!-- <beans:bean class="Interceptor"></beans:bean> -->

@@ -12,7 +12,7 @@ import springfox.documentation.spring.web.json.Json;
 public class CommonExceptionController {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    @RequestMapping(value = {"/common/exception/error"}, method = {RequestMethod.GET, RequestMethod.POST})
+    @RequestMapping(value = {"/common/exception/error"})
     public Json errorView(final Throwable e) {
         this.logger.warn(ExceptionUtils.getStackTrace(e));
         return new Json(new CommonException(e).getJsonObject().toString());
