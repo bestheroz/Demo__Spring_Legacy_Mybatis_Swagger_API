@@ -31,7 +31,7 @@ public class AdminMemberController {
     @ApiOperation(value = "회원 데이터 취득")
     @ApiResponses({@ApiResponse(response = GetSampleMemberMstVOResponseVO.class, responseContainer = "List", code = 200, message = CommonCode.SWAGGER_COMMON_200_MESSAGE)})
     @RequestMapping(method = RequestMethod.GET)
-    public CommonResponseVO getList(@ApiParam(value = "회원 아이디")) throws CommonException {
+    public CommonResponseVO getList() throws CommonException {
         return MyResponseUtils.getSuccessCommonResponseVO(this.adminMemberService.getList());
     }
 
@@ -70,8 +70,8 @@ public class AdminMemberController {
 
     @ApiOperation(value = "회원 데이터 삭제")
     @ApiResponses({@ApiResponse(code = 200, message = CommonCode.SWAGGER_COMMON_200_MESSAGE)})
-    @RequestMapping(method = RequestMethod.DELETE)
-    public CommonResponseVO delete(@ApiParam(value = "회원 아이디", required = true) @RequestParam(value = "memberId") final String memberId) throws CommonException {
+    @RequestMapping(value="{memberId}",method = RequestMethod.DELETE)
+    public CommonResponseVO delete(@ApiParam(value = "회원 아이디", required = true) @PathVariable(value = "memberId") final String memberId) throws CommonException {
         this.adminMemberService.delete(memberId);
         return MyResponseUtils.SUCCESS_NORMAL;
     }
