@@ -26,17 +26,17 @@ public class AdminMenuService {
     }
 
     public void insertSampleMenuMst(final TableSampleMenuMstVO vo) throws CommonException {
-        this.tableSampleMenuMstDAO.insertSampleMenuMst(vo);
+        this.tableSampleMenuMstDAO.insert(vo);
     }
 
     public void updateSampleMenuMst(final TableSampleMenuMstVO vo) throws CommonException {
-        this.tableSampleMenuMstDAO.updateSampleMenuMst(vo, Collections.singletonList("menuId"), null);
+        this.tableSampleMenuMstDAO.update(vo, Collections.singleton("menuId"), null);
     }
 
     public void deleteSampleMenuMst(final Integer menuId) throws CommonException {
         final TableSampleMenuMstVO vo = new TableSampleMenuMstVO();
         vo.setMenuId(menuId);
-        this.tableSampleMenuMstDAO.deleteSampleMenuMst(vo, Collections.singletonList("menuId"));
+        this.tableSampleMenuMstDAO.delete(vo, Collections.singleton("menuId"));
     }
 
     public List<GetValueLabeVOListResponseVO> getPMenuValueLableVOList() throws CommonException {
