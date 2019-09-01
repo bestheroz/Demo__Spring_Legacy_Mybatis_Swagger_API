@@ -6,7 +6,6 @@ import org.apache.ibatis.annotations.InsertProvider;
 import org.apache.ibatis.annotations.SelectProvider;
 import org.apache.ibatis.annotations.UpdateProvider;
 
-import java.util.List;
 import java.util.Set;
 
 @SuppressWarnings("ALL")
