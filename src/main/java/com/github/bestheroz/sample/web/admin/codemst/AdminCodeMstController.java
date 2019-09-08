@@ -46,7 +46,7 @@ public class AdminCodeMstController {
 
     @ApiOperation(value = "그룹 코드 데이터 수정")
     @ApiResponses({@ApiResponse(code = 200, message = CommonCode.SWAGGER_COMMON_200_MESSAGE)})
-    @RequestMapping(method = RequestMethod.PUT)
+    @RequestMapping(method = RequestMethod.PATCH)
     public CommonResponseVO put(final UpdateSampleCodeMstRequestVO vo) throws CommonException {
         final TableSampleCodeMstVO tableSampleCodeMstVO = MyMapperUtils.writeObjectAsObject(vo, TableSampleCodeMstVO.class);
         tableSampleCodeMstVO.setUpdMemberId("update");

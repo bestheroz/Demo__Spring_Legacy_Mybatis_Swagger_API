@@ -43,7 +43,7 @@ public class AdminMenuController {
 
     @ApiOperation(value = "메뉴 데이터 수정")
     @ApiResponses({@ApiResponse(code = 200, message = CommonCode.SWAGGER_COMMON_200_MESSAGE)})
-    @RequestMapping( method = RequestMethod.PUT)
+    @RequestMapping(method = RequestMethod.PATCH)
     public CommonResponseVO update(final UpdateSampleMenuMstRequestVO vo) throws CommonException {
         final TableSampleMenuMstVO tableSampleMenuMstVO = MyMapperUtils.writeObjectAsObject(vo, TableSampleMenuMstVO.class);
         tableSampleMenuMstVO.setUpdMemberId("update");

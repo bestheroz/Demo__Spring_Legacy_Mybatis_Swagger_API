@@ -50,7 +50,7 @@ public class AdminCodeDetController {
 
     @ApiOperation(value = "상세 코드 데이터 수정")
     @ApiResponses({@ApiResponse(code = 200, message = CommonCode.SWAGGER_COMMON_200_MESSAGE)})
-    @RequestMapping(method = RequestMethod.PUT)
+    @RequestMapping(method = RequestMethod.PATCH)
     public CommonResponseVO update(final UpdateSampleCodeDetRequestVO vo) throws CommonException {
         final TableSampleCodeDetVO tableSampleCodeDetVO = MyMapperUtils.writeObjectAsObject(vo, TableSampleCodeDetVO.class);
         tableSampleCodeDetVO.setUpdMemberId("update");
