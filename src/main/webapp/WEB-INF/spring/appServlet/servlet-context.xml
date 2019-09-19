@@ -23,7 +23,6 @@
 
     <!-- Enables the Spring MVC @Controller programming model -->
     <annotation-driven conversion-service="conversionService"/>
-    <!-- <default-servlet-handler /> -->
 
     <!-- 인터셉트 -->
     <!-- <interceptors> -->
