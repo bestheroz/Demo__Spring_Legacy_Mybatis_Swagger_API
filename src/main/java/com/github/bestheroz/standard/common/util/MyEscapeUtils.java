@@ -25,7 +25,6 @@ public class MyEscapeUtils {
     }
 
     // xss필터에서 추가로 필요한 문자 (, ), #, \ 때문에 재구현 하였다. 171117 by bestheroz
-    // SKMNS 개발보안 가이드라인_(2016년) v2.4.1 버전 참조.
     private static String escapeForSecurity(final String dirty) {
         String clean = dirty;
         if (StringUtils.isNotEmpty(clean)) {

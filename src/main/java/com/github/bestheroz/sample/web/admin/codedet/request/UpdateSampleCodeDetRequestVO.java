@@ -1,17 +1,11 @@
-package com.github.bestheroz.sample.web.admin.valuelabel.request;
+package com.github.bestheroz.sample.web.admin.codedet.request;
 
 import io.swagger.annotations.ApiModelProperty;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
-public class InsertSampleCodeDetRequestVO {
-    @NotEmpty
-    @ApiModelProperty(value = "그룹 코드", required = true)
-    private String grcode;
-    @NotEmpty
-    @ApiModelProperty(value = "코드", required = true)
-    private String code;
+public class UpdateSampleCodeDetRequestVO {
     @NotEmpty
     @ApiModelProperty(value = "코드 명", required = true)
     private String codeNm;
@@ -23,22 +17,6 @@ public class InsertSampleCodeDetRequestVO {
     private Integer dispSeq;
     @ApiModelProperty(value = "비고")
     private String remark1;
-
-    public String getGrcode() {
-        return this.grcode;
-    }
-
-    public void setGrcode(final String grcode) {
-        this.grcode = grcode;
-    }
-
-    public String getCode() {
-        return this.code;
-    }
-
-    public void setCode(final String code) {
-        this.code = code;
-    }
 
     public String getCodeNm() {
         return this.codeNm;

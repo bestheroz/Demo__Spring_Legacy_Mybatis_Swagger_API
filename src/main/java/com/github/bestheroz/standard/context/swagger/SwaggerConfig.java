@@ -35,7 +35,12 @@ public class SwaggerConfig {
 
     @Bean
     public Docket api5() {
-        return this.getDocket("코드관리", "com.github.bestheroz.sample.web.admin.valuelabel", "/sample/admin/valuelabel/**");
+        return this.getDocket("코드mst관리", "com.github.bestheroz.sample.web.admin.codemst", "/sample/admin/codemst/**");
+    }
+
+    @Bean
+    public Docket api6() {
+        return this.getDocket("코드det관리", "com.github.bestheroz.sample.web.admin.codedet", "/sample/admin/codedet/**");
     }
 
     public Docket getDocket(final String groupName, final String basePackage, final String paths) {
@@ -45,7 +50,7 @@ public class SwaggerConfig {
     }
 
     private ApiInfo getApiInfo(final String groupName) {
-        return new ApiInfoBuilder().title("SK M&Service API System").description(groupName + " API Document").termsOfServiceUrl("http://www.myervice.com").version("181107")
+        return new ApiInfoBuilder().title("My API Platform").description(groupName + " API Document").termsOfServiceUrl("https://github.com/bestheroz").version("190915")
                 .license("Apache License Version 2.0").licenseUrl("http://www.apache.org/licenses/LICENSE-2.0").build();
     }
 }
