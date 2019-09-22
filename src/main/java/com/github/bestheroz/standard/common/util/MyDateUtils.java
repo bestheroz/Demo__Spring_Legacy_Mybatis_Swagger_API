@@ -19,11 +19,11 @@ public class MyDateUtils {
     public static final String HH_MM_SS = "HH:mm:ss";
     public static final String YYYY_MM_DD = "yyyy-MM-dd";
     public static final String YYYY_MM_DD_HH_MM_SS = "yyyy-MM-dd HH:mm:ss";
+    public static final String ISO_8601 = "yyyy-MM-dd'T'HH:mm:ss.SSSZ";
 
     public static final String HHMMSS = "HHmmss";
     public static final String YYYYMM = "yyyyMM";
     public static final String YYYYMMDD = "yyyyMMdd";
-    public static final String YYYYMMDDHHMM = "yyyyMMddHHmm";
     public static final String YYYYMMDDHHMMSS = "yyyyMMddHHmmss";
 
     public static String getStringNow(final String pattern) {
@@ -152,6 +152,48 @@ public class MyDateUtils {
             }
         }
         return res;
+    }
+
+    public static LocalDateTime getLocalDateTimeIgnoreException(String arg0) {
+        if (StringUtils.isNotEmpty(arg0)) {
+            try {
+                // 1. long값(timestamp)
+                return getLocalDateTime(Long.parseLong(arg0));
+            } catch (final Throwable e) {
+                try {
+                    // 2. yyyy-MM-dd
+                    return getLocalDateTime(arg0, MyDateUtils.YYYY_MM_DD);
+                } catch (final Throwable e2) {
+                    try {
+                        // 3. yyyy-MM-ddTHH:mm:ss.SSSZ
+                        return getLocalDateTime(arg0, MyDateUtils.ISO_8601);
+                    } catch (final Throwable e3) {
+                        try {
+                            // 4. yyyyMMdd
+                            return getLocalDateTime(arg0, MyDateUtils.YYYYMMDD);
+                        } catch (final Throwable e4) {
+                            try {
+                                // 5. yyyyMMddHHmmss
+                                return getLocalDateTime(arg0, MyDateUtils.YYYYMMDDHHMMSS);
+                            } catch (final Throwable e5) {
+                                return null;
+                            }
+                        }
+                    }
+                }
+            }
+        } else {
+            return null;
+        }
+    }
+
+    public static DateTime getDateTimeIgnoreException(String arg0) {
+        final LocalDateTime localDateTimeIgnoreException = getLocalDateTimeIgnoreException(arg0);
+        if (localDateTimeIgnoreException != null) {
+            return getDateTime(localDateTimeIgnoreException.toDate());
+        } else {
+            return null;
+        }
     }
 
 }

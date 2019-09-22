@@ -11,14 +11,6 @@
     <resources mapping="swagger-ui.html" location="classpath:/META-INF/resources/"/>
     <resources mapping="/webjars/**" location="classpath:/META-INF/resources/webjars/"/>
 
-    <!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
-    <beans:bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <beans:property name="prefix" value="/WEB-INF/views/"/>
-        <beans:property name="suffix" value=".jsp"/>
-        <beans:property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
-        <beans:property name="contentType" value="text/html;charset=UTF-8"></beans:property>
-    </beans:bean>
-
     <context:component-scan base-package="com.github.bestheroz"/>
 
     <!-- Enables the Spring MVC @Controller programming model -->
