@@ -10,11 +10,11 @@ public class TestMyMaskingUtils {
         Assertions.assertEquals("", MyMaskUtils.getEmail(null));
         Assertions.assertEquals("", MyMaskUtils.getEmail(""));
         Assertions.assertEquals("t*s*@test.com", MyMaskUtils.getEmail("test@test.com"));
-        Assertions.assertEquals("b*s*h*r*z@sk.com", MyMaskUtils.getEmail("bestheroz@sk.com"));
-        Assertions.assertEquals("b*s*h*r*z", MyMaskUtils.getEmail("bestheroz"));
-        Assertions.assertEquals("b*s*h*r*z@", MyMaskUtils.getEmail("bestheroz@"));
-        Assertions.assertEquals("b*s*h*r*z@test", MyMaskUtils.getEmail("bestheroz@test"));
-        Assertions.assertEquals("b*s*h*r*z@test.", MyMaskUtils.getEmail("bestheroz@test."));
+        Assertions.assertEquals("b*s*h*r*z@sk.com", MyMaskUtils.getEmail("com.github.bestheroz@sk.com"));
+        Assertions.assertEquals("b*s*h*r*z", MyMaskUtils.getEmail("com/github/bestheroz"));
+        Assertions.assertEquals("b*s*h*r*z@", MyMaskUtils.getEmail("com.github.bestheroz@"));
+        Assertions.assertEquals("b*s*h*r*z@test", MyMaskUtils.getEmail("com.github.bestheroz@test"));
+        Assertions.assertEquals("b*s*h*r*z@test.", MyMaskUtils.getEmail("com.github.bestheroz@test."));
     }
 
     @Test

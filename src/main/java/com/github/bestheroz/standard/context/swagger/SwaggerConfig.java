@@ -15,7 +15,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 public class SwaggerConfig {
     @Bean
     public Docket api1() {
-        return this.getDocket("로그인", "com.github.bestheroz.sample.web.login", "/sample/login/**");
+        return this.getDocket("권한", "com.github.bestheroz.sample.api.auth", "/sample/auth/**");
     }
 
     @Bean
@@ -25,22 +25,22 @@ public class SwaggerConfig {
 
     @Bean
     public Docket api3() {
-        return this.getDocket("회원관리", "com.github.bestheroz.sample.web.admin.member", "/sample/admin/member/**");
+        return this.getDocket("회원관리", "com.github.bestheroz.sample.api.admin.member", "/sample/admin/member/**");
     }
 
     @Bean
     public Docket api4() {
-        return this.getDocket("메뉴관리", "com.github.bestheroz.sample.web.admin.menu", "/sample/admin/menu/**");
+        return this.getDocket("메뉴관리", "com.github.bestheroz.sample.api.admin.menu", "/sample/admin/menu/**");
     }
 
     @Bean
     public Docket api5() {
-        return this.getDocket("코드mst관리", "com.github.bestheroz.sample.web.admin.codemst", "/sample/admin/codemst/**");
+        return this.getDocket("코드mst관리", "com.github.bestheroz.sample.api.admin.codemst", "/sample/admin/codemst/**");
     }
 
     @Bean
     public Docket api6() {
-        return this.getDocket("코드det관리", "com.github.bestheroz.sample.web.admin.codedet", "/sample/admin/codedet/**");
+        return this.getDocket("코드det관리", "com.github.bestheroz.sample.api.admin.codedet", "/sample/admin/codedet/**");
     }
 
     public Docket getDocket(final String groupName, final String basePackage, final String paths) {
@@ -50,7 +50,7 @@ public class SwaggerConfig {
     }
 
     private ApiInfo getApiInfo(final String groupName) {
-        return new ApiInfoBuilder().title("bestheroz's API Platform").description(groupName + " API Document").termsOfServiceUrl("https://github.com/bestheroz").version("190922")
+        return new ApiInfoBuilder().title("bestheroz's API Platform").description(groupName + " API Document").termsOfServiceUrl("https://github.com/bestheroz").version("191006")
                 .license("Apache License Version 2.0").licenseUrl("http://www.apache.org/licenses/LICENSE-2.0").build();
     }
 }

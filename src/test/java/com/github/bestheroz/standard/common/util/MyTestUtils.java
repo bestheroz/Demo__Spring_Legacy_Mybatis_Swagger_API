@@ -18,12 +18,11 @@ import java.util.Map.Entry;
 
 public class MyTestUtils {
     private static final Logger LOGGER = LoggerFactory.getLogger(MyTestUtils.class);
+    private static MockMvc mockMvc = null;
 
     protected MyTestUtils() {
         throw new UnsupportedOperationException();
     }
-
-    private static MockMvc mockMvc = null;
 
     public static void setMockMvc(final MockMvc mockMvc) {
         MyTestUtils.mockMvc = mockMvc;

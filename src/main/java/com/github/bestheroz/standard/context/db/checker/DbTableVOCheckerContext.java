@@ -32,7 +32,7 @@ public class DbTableVOCheckerContext {
 
     @Autowired
     public void validDbTableVO(final SqlSession sqlSession) {
-        try (Statement stmt = new SqlSessionFactoryBuilder().build(sqlSession.getConfiguration()).openSession().getConnection().createStatement()) {
+        try (final Statement stmt = new SqlSessionFactoryBuilder().build(sqlSession.getConfiguration()).openSession().getConnection().createStatement()) {
             final List<Class<?>> targetClassList = this.findMyTypes("com.github.bestheroz");
             final List<String> filedList = new ArrayList<>();
             for (final Class<?> class1 : targetClassList) {
@@ -41,7 +41,7 @@ public class DbTableVOCheckerContext {
                     filedList.add(field.getName());
                 }
                 final String tableName = CaseFormat.LOWER_CAMEL.to(CaseFormat.UPPER_UNDERSCORE, StringUtils.substringBetween(class1.getSimpleName(), "Table", "VO"));
-                try (ResultSet rs = stmt.executeQuery("SELECT * FROM " + tableName + " WHERE ROWNUM=0")) {
+                try (final ResultSet rs = stmt.executeQuery("SELECT * FROM " + tableName + " WHERE ROWNUM=0")) {
                     final ResultSetMetaData metaInfo = rs.getMetaData();
                     final String className = class1.getSimpleName();
 
@@ -76,7 +76,7 @@ public class DbTableVOCheckerContext {
                     if (isInvalid) {
                         final StringBuilder voSb = new StringBuilder(className + ".java를 아래값으로 동기화 해주세요.\n");
                         for (int i = 0; i < metaInfo.getColumnCount(); i++) {
-                            String fieldType;
+                            final String fieldType;
                             final String columnTypeName = metaInfo.getColumnTypeName(i + 1);
                             final String columnName = metaInfo.getColumnName(i + 1);
                             final String camelColumnName = CaseFormat.LOWER_UNDERSCORE.to(CaseFormat.LOWER_CAMEL, columnName);
