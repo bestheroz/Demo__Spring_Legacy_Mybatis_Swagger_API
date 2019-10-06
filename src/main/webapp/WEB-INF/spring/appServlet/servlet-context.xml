@@ -22,23 +22,24 @@
     </cors>
 
     <!-- 인터셉트 -->
-    <!-- <interceptors> -->
-    <!-- <interceptor> -->
-    <!-- <mapping path="/**" /> -->
-    <!-- <exclude-mapping path="/favicon.ico" /> -->
-    <!-- <exclude-mapping path="/swagger-ui.html" /> -->
-    <!-- <exclude-mapping path="/swagger-resources/**" /> -->
-    <!-- <exclude-mapping path="/configuration/**" /> -->
-    <!-- <exclude-mapping path="/webjars/**" /> -->
-    <!-- <exclude-mapping path="/v2/api-docs" /> -->
-
-    <!-- <exclude-mapping path="/" /> -->
-    <!-- <exclude-mapping path="/csrf" /> -->
-    <!-- <exclude-mapping path="/common/valuelabel/getValueLabeVOList.json" /> -->
-    <!-- <exclude-mapping path="/favicon.ico" /> -->
-    <!-- <exclude-mapping path="/common/exception/**" /> -->
-    <!-- <beans:bean class="Interceptor"></beans:bean> -->
-    <!-- </interceptor> -->
-    <!-- </interceptors> -->
+    <interceptors>
+        <interceptor>
+            <mapping path="/**"/>
+            <exclude-mapping path="/"/>
+            <exclude-mapping path="/fonts/**"/>
+            <exclude-mapping path="/index.html"/>
+            <exclude-mapping path="/img/**"/>
+            <exclude-mapping path="/js/**"/>
+            <exclude-mapping path="/**/*.css"/>
+            <exclude-mapping path="/**/*.ico"/>
+            <exclude-mapping path="/**/*.js"/>
+            <exclude-mapping path="/**/*.json"/>
+            <exclude-mapping path="/**/*.html"/>
+            <exclude-mapping path="/**/*.map"/>
+            <exclude-mapping path="/**/*.txt"/>
+            <exclude-mapping path="/sample/auth/**"/>
+            <beans:bean class="com.github.bestheroz.standard.common.interceptor.Interceptor"/>
+        </interceptor>
+    </interceptors>
 
 </beans:beans>
