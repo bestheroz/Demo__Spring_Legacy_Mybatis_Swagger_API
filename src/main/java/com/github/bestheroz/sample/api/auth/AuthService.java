@@ -29,7 +29,7 @@ public class AuthService {
         final TableSampleMemberMstVO tableSampleMemberMstVO = new TableSampleMemberMstVO();
         tableSampleMemberMstVO.setMemberId(memberId);
         tableSampleMemberMstVO.setMemberPw(memberPw);
-        final TableSampleMemberMstVO sampleMemberMstVO = this.tableSampleMemberMstDAO.getVO(tableSampleMemberMstVO, Collections.singleton("memberId"));
+        final TableSampleMemberMstVO sampleMemberMstVO = this.tableSampleMemberMstDAO.getOne(tableSampleMemberMstVO, Collections.singleton("memberId"));
 
         // 로그인 관문
         // 1. 유저가 없으면
@@ -73,7 +73,7 @@ public class AuthService {
         }
         final TableSampleMemberMstVO tableSampleMemberMstVO = new TableSampleMemberMstVO();
         tableSampleMemberMstVO.setToken(token);
-        if (this.tableSampleMemberMstDAO.getVO(tableSampleMemberMstVO, Collections.singleton("token")) == null) {
+        if (this.tableSampleMemberMstDAO.getOne(tableSampleMemberMstVO, Collections.singleton("token")) == null) {
             this.logger.warn(new CommonException(CommonExceptionCode.FAIL_NOT_ALLOWED_MEMBER).getJsonObject().toString());
             throw new CommonException(CommonExceptionCode.FAIL_NOT_ALLOWED_MEMBER);
         }
