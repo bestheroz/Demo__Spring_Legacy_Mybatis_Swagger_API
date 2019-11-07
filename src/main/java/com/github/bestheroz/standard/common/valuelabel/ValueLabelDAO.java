@@ -6,11 +6,13 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Map;
 
 @Mapper
+@Repository
 public interface ValueLabelDAO {
     @Select(value = "SELECT SCD.CODE, SCD.CODE_NM FROM SAMPLE_CODE_DET SCD WHERE SCD.GRCODE = #{grcode, jdbcType=VARCHAR} ORDER BY SCD.DISP_SEQ ASC")
     @Results(value = {@Result(column = "CODE", property = "value"), @Result(column = "CODE_NM", property = "label")})
