@@ -43,11 +43,10 @@ public class AdminCodeMstController {
     }
 
     @ApiOperation(value = "그룹 코드 데이터 추가")
-    @ApiResponses({@ApiResponse(code = 200, message = CommonCode.SWAGGER_COMMON_200_MESSAGE)})
     @PostMapping
     public CommonResponseVO post(@RequestBody final InsertSampleCodeMstRequestVO vo, final BindingResult bindingResult) throws CommonException {
         for (final FieldError fieldError : bindingResult.getFieldErrors()) {
-            this.logger.warn(new CommonException(CommonExceptionCode.FAIL_INVALID_PARAMETER, fieldError.getDefaultMessage()).getJsonObject().toString());
+            this.logger.warn(new CommonException(CommonExceptionCode.FAIL_INVALID_PARAMETER, fieldError.getDefaultMessage()).toString());
         }
         final TableSampleCodeMstVO tableSampleCodeMstVO = MyMapperUtils.writeObjectAsObject(vo, TableSampleCodeMstVO.class);
         tableSampleCodeMstVO.setCreatedBy("insert");
@@ -57,12 +56,11 @@ public class AdminCodeMstController {
     }
 
     @ApiOperation(value = "그룹 코드 데이터 수정")
-    @ApiResponses({@ApiResponse(code = 200, message = CommonCode.SWAGGER_COMMON_200_MESSAGE)})
     @PatchMapping(value = "{groupCode}")
     public CommonResponseVO patch(@ApiParam("그룹 코드") @PathVariable(value = "groupCode") final String groupCode, @RequestBody final UpdateSampleCodeMstRequestVO vo, final BindingResult bindingResult)
             throws CommonException {
         for (final FieldError fieldError : bindingResult.getFieldErrors()) {
-            this.logger.warn(new CommonException(CommonExceptionCode.FAIL_INVALID_PARAMETER, fieldError.getDefaultMessage()).getJsonObject().toString());
+            this.logger.warn(new CommonException(CommonExceptionCode.FAIL_INVALID_PARAMETER, fieldError.getDefaultMessage()).toString());
         }
         final TableSampleCodeMstVO tableSampleCodeMstVO = MyMapperUtils.writeObjectAsObject(vo, TableSampleCodeMstVO.class);
         tableSampleCodeMstVO.setGroupCode(groupCode);
@@ -72,7 +70,6 @@ public class AdminCodeMstController {
     }
 
     @ApiOperation(value = "그룹 코드 데이터 삭제")
-    @ApiResponses({@ApiResponse(code = 200, message = CommonCode.SWAGGER_COMMON_200_MESSAGE)})
     @DeleteMapping(value = "{groupCode}")
     public CommonResponseVO delete(@ApiParam("그룹 코드") @PathVariable(value = "groupCode") final String groupCode) throws CommonException {
         this.adminCodeMstService.delete(groupCode);

@@ -44,11 +44,10 @@ public class AdminCodeDetController {
     }
 
     @ApiOperation(value = "상세 코드 데이터 추가")
-    @ApiResponses({@ApiResponse(code = 200, message = CommonCode.SWAGGER_COMMON_200_MESSAGE)})
     @PostMapping
     public CommonResponseVO insert(@RequestBody final InsertSampleCodeDetRequestVO vo, final BindingResult bindingResult) throws CommonException {
         for (final FieldError fieldError : bindingResult.getFieldErrors()) {
-            this.logger.warn(new CommonException(CommonExceptionCode.FAIL_INVALID_PARAMETER, fieldError.getDefaultMessage()).getJsonObject().toString());
+            this.logger.warn(new CommonException(CommonExceptionCode.FAIL_INVALID_PARAMETER, fieldError.getDefaultMessage()).toString());
         }
         final TableSampleCodeDetVO tableSampleCodeDetVO = MyMapperUtils.writeObjectAsObject(vo, TableSampleCodeDetVO.class);
         tableSampleCodeDetVO.setCreatedBy("insert");
@@ -58,13 +57,12 @@ public class AdminCodeDetController {
     }
 
     @ApiOperation(value = "상세 코드 데이터 수정")
-    @ApiResponses({@ApiResponse(code = 200, message = CommonCode.SWAGGER_COMMON_200_MESSAGE)})
     @PatchMapping(value = "{groupCode}/{code}")
     public CommonResponseVO update(@ApiParam("그룹 코드") @PathVariable(value = "groupCode") final String groupCode,
                                    @ApiParam("상세 코드") @PathVariable(value = "code") final String code, @RequestBody final UpdateSampleCodeDetRequestVO vo, final BindingResult bindingResult)
             throws CommonException {
         for (final FieldError fieldError : bindingResult.getFieldErrors()) {
-            this.logger.warn(new CommonException(CommonExceptionCode.FAIL_INVALID_PARAMETER, fieldError.getDefaultMessage()).getJsonObject().toString());
+            this.logger.warn(new CommonException(CommonExceptionCode.FAIL_INVALID_PARAMETER, fieldError.getDefaultMessage()).toString());
         }
         final TableSampleCodeDetVO tableSampleCodeDetVO = MyMapperUtils.writeObjectAsObject(vo, TableSampleCodeDetVO.class);
         tableSampleCodeDetVO.setGroupCode(groupCode);
@@ -75,7 +73,6 @@ public class AdminCodeDetController {
     }
 
     @ApiOperation(value = "상세 코드 데이터 삭제")
-    @ApiResponses({@ApiResponse(code = 200, message = CommonCode.SWAGGER_COMMON_200_MESSAGE)})
     @DeleteMapping(value = "{groupCode}/{code}")
     public CommonResponseVO delete(@ApiParam("그룹 코드") @PathVariable(value = "groupCode") final String groupCode,
                                    @ApiParam("상세 코드") @PathVariable(value = "code") final String code) throws CommonException {

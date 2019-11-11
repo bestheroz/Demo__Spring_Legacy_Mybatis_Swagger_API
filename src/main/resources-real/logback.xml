@@ -32,6 +32,7 @@
     <logger name="org.springframework" level="INFO"/>
     <logger name="org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor" level="DEBUG"/>
     <logger name="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping" level="WARN"/>
+    <logger name="logging.level.org.springframework.web.filter" level="DEBUG"/>
 
     <logger name="org.apache.ibatis" level="INFO"/>
     <logger name="org.apache.commons.beanutils" level="INFO"/>
@@ -43,10 +44,12 @@
     <logger name="org.jdbcdslog.StatementLogger" level="INFO"/>
     <logger name="org.jdbcdslog.ResultSetLogger" level="INFO"/>
 
+    <logger name="org.hibernate.validator.internal" level="INFO"/>
+
     <logger name="springfox.documentation.schema" level="INFO"/>
     <logger name="io.swagger.models.parameters.AbstractSerializableParameter" level="ERROR"/>
-    <logger name="springfox.documentation.spring.web.readers.parameter.ModelAttributeParameterExpander" level="INFO"/>
-    <logger name="springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping" level="INFO"/>
+    <logger name="springfox.documentation.spring.web" level="INFO"/>
+    <logger name="springfox.documentation.swagger.readers.operation" level="INFO"/>
 
     <logger name="com.github.ziplet.filter.compression" level="INFO"/>
 

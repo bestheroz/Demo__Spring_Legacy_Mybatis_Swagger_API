@@ -43,7 +43,6 @@ public class AdminMenuController {
     }
 
     @ApiOperation(value = "메뉴 데이터 추가")
-    @ApiResponses({@ApiResponse(code = 200, message = CommonCode.SWAGGER_COMMON_200_MESSAGE)})
     @PostMapping
     public CommonResponseVO insert(@RequestBody final InsertSampleMenuMstRequestVO vo) throws CommonException {
         final TableSampleMenuMstVO tableSampleMenuMstVO = MyMapperUtils.writeObjectAsObject(vo, TableSampleMenuMstVO.class);
@@ -54,7 +53,6 @@ public class AdminMenuController {
     }
 
     @ApiOperation(value = "메뉴 데이터 수정")
-    @ApiResponses({@ApiResponse(code = 200, message = CommonCode.SWAGGER_COMMON_200_MESSAGE)})
     @PatchMapping(value = "{menuId}")
     public CommonResponseVO update(@ApiParam("메뉴 아이디") @PathVariable(value = "menuId") final Integer menuId, @RequestBody final UpdateSampleMenuMstRequestVO vo) throws CommonException {
         final TableSampleMenuMstVO tableSampleMenuMstVO = MyMapperUtils.writeObjectAsObject(vo, TableSampleMenuMstVO.class);
@@ -65,7 +63,6 @@ public class AdminMenuController {
     }
 
     @ApiOperation(value = "메뉴 데이터 삭제")
-    @ApiResponses({@ApiResponse(code = 200, message = CommonCode.SWAGGER_COMMON_200_MESSAGE)})
     @DeleteMapping(value = "{menuId}")
     public CommonResponseVO delete(@ApiParam("메뉴 아이디") @PathVariable(value = "menuId") final Integer menuId) throws CommonException {
         this.adminMenuService.delete(menuId);
